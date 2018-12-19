@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/modul_margin_default"
+        android:layout_marginBottom="@dimen/modul_margin_default"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="230dp"
+            android:layout_height="90dp"
+            android:background="@drawable/bg_dialog_red">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/ll_head"
+                android:gravity="center"
+                >
+
+                <ProgressBar
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:backgroundTint="@color/color_white"
+                    android:indeterminateTint="@color/color_white"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_clear"
+                android:id="@+id/iv_cancel"
+                android:background="?attr/selectableItemBackground"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dialog_white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/modul_margin_default">
+
+            <TextView
+                android:id="@+id/tv_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Sedang memproses ..."
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/modul_dialog_size" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="OK"
+                    android:textColor="@color/color_orange_dialog"
+                    android:textSize="19sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/modul_margin_default"
+        android:layout_marginBottom="@dimen/modul_margin_default"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="90dp"
+            android:orientation="vertical"
+            android:id="@+id/ll_head"
+            android:gravity="center"
+            android:background="@drawable/bg_dialog_red"
+            >
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.White"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_footer"
+            android:gravity="center"
+            android:padding="@dimen/modul_margin_default"
+            android:background="@drawable/bg_dialog_white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_black"
+                android:gravity="center"
+                android:textSize="@dimen/modul_dialog_size"
+                android:text="Silahkan tunggu hingga proses selesai"
+                android:id="@+id/tv_text1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/modul_margin_default"
+                android:gravity="center_vertical"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="@color/color_black"
+                    android:textSize="12sp"
+                    android:layout_marginRight="4dp"
+                    android:id="@+id/btn_ok"
+                    android:text="Batalkan"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/color_red_dialog"
+                    android:textSize="12sp"
+                    android:id="@+id/btn_konfirmasi"
+                    android:text="Konfirmasi Transaksi Sudah Masuk"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>
