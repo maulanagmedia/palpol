@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:map="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context=".FormMapsActivity"
+android:background="@color/colorPrimary">
+
+<android.support.v7.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/toolbar"
+    android:title="Outlet Position"
+    map:title="Outlet DS Position"
+    map:titleTextColor="@color/color_white">
+
+</android.support.v7.widget.Toolbar>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ripple_selected_orange"
+    android:padding="@dimen/padding_default"
+    android:layout_below="@id/toolbar"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical|right"
+            android:id="@+id/tv_ket"
+            android:text="Tahan point untuk memindah/ tekan pada bagian map"/>
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_above="@id/tv_ket"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button"
+            android:id="@+id/ll_reset"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="25dp"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_white"
+                android:text="Reset to current position"
+                android:padding="@dimen/padding_default" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:scrollbarSize="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="@dimen/padding_default"
+                android:layout_marginRight="@dimen/padding_default"
+                android:layout_marginLeft="@dimen/padding_default">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical"
+                    android:id="@+id/tv_ket_2"
+                    android:text="Geser gambar untuk melihat lainnya"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_centerInParent="true"
+                    android:layout_above="@id/tv_ket_2"
+                    android:id="@+id/rv_image"></android.support.v7.widget.RecyclerView>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_add_photo"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/padding_default"
+                    android:id="@+id/fab_upload"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_default"
+                android:layout_marginRight="@dimen/padding_default"
+                android:layout_marginLeft="@dimen/padding_default"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/padding_default"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.12"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_city"
+                        android:background="@color/color_orange"
+                        android:padding="3dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.88"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:id="@+id/tv_nama"
+                        android:gravity="center_vertical"
+                        android:background="@color/color_grey_white"
+                        android:paddingRight="@dimen/padding_default"
+                        android:paddingLeft="@dimen/padding_default"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_default"
+                android:layout_marginRight="@dimen/padding_default"
+                android:layout_marginLeft="@dimen/padding_default"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/padding_default"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.12"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_person"
+                        android:background="@color/color_orange"
+                        android:padding="3dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.88"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:id="@+id/tv_nama_pemilik"
+                        android:gravity="center_vertical"
+                        android:background="@color/color_grey_white"
+                        android:paddingRight="@dimen/padding_default"
+                        android:paddingLeft="@dimen/padding_default"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_default"
+                android:layout_marginRight="@dimen/padding_default"
+                android:layout_marginLeft="@dimen/padding_default"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/padding_default"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.12"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_position"
+                        android:background="@color/color_orange"
+                        android:padding="3dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.88"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:id="@+id/tv_address"
+                        android:gravity="center_vertical"
+                        android:background="@color/color_grey_white"
+                        android:paddingRight="@dimen/padding_default"
+                        android:paddingLeft="@dimen/padding_default"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_marginTop="@dimen/padding_default"
+                android:layout_marginRight="@dimen/padding_default"
+                android:layout_marginLeft="@dimen/padding_default"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/padding_default"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.12"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_point"
+                        android:background="@color/color_orange"
+                        android:padding="3dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.88"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:id="@+id/tv_point"
+                        android:gravity="center_vertical"
+                        android:background="@color/color_grey_white"
+                        android:paddingRight="@dimen/padding_default"
+                        android:paddingLeft="@dimen/padding_default"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="@dimen/padding_default"
+                android:layout_marginLeft="@dimen/padding_default"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button"
+                    android:text="Simpan"
+                    android:id="@+id/btn_simpan"
+                    android:textColor="@color/color_white"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+</RelativeLayout>
