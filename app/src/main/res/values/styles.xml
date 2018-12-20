@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.Login.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/color_white</item>
+        <item name="android:textColorPrimary">@color/color_blue</item>
+        <item name="android:background">@color/color_red_black</item>
+    </style>
+
 </resources>

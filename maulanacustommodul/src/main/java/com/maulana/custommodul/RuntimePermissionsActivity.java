@@ -1,13 +1,18 @@
 package com.maulana.custommodul;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseIntArray;
+import android.view.View;
 
 /**
  * Created by Shin on 30-03-2017.
@@ -33,7 +38,7 @@ public abstract class RuntimePermissionsActivity extends AppCompatActivity {
         if ((grantResults.length > 0) && permissionCheck == PackageManager.PERMISSION_GRANTED) {
             onPermissionsGranted(requestCode);
         } else {
-            /*Snackbar.make(findViewById(android.R.id.content), mErrorString.get(requestCode),
+            Snackbar.make(findViewById(android.R.id.content), mErrorString.get(requestCode),
                     Snackbar.LENGTH_INDEFINITE).setAction("ENABLE",
                     new View.OnClickListener() {
                         @Override
@@ -47,7 +52,7 @@ public abstract class RuntimePermissionsActivity extends AppCompatActivity {
                             intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
                             startActivity(intent);
                         }
-                    }).show();*/
+                    }).show();
         }
         Log.d(TAG, "onRequestPermissionsResult: " + grantResults.length +" "+permissionCheck+ " "+ PackageManager.PERMISSION_GRANTED);
     }
@@ -63,14 +68,14 @@ public abstract class RuntimePermissionsActivity extends AppCompatActivity {
         }
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
             if (shouldShowRequestPermissionRationale) {
-                /*Snackbar.make(findViewById(android.R.id.content), stringId,
+                Snackbar.make(findViewById(android.R.id.content), stringId,
                         Snackbar.LENGTH_INDEFINITE).setAction("GRANT",
                         new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 ActivityCompat.requestPermissions(RuntimePermissionsActivity.this, requestedPermissions, requestCode);
                             }
-                        }).show();*/
+                        }).show();
             } else {
                 ActivityCompat.requestPermissions(this, requestedPermissions, requestCode);
             }

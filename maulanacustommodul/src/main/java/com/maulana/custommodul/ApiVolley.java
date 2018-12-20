@@ -127,7 +127,7 @@ public class ApiVolley {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Content-Type", "application/json");
                 params.put("Client-Service", "frontend-client");
-                params.put("Auth-Key", "gmedia_perkasa_pol");
+                params.put("Auth-Key", "gmedia_pal_pol");
                 params.put("token0", token0);
                 params.put("token1", token1);
                 params.put("token2", token2);
@@ -154,7 +154,7 @@ public class ApiVolley {
         };
         //endregion
 
-        trustAllCertivicate();
+        //trustAllCertivicate();
 
         if(requestQueue == null){
             requestQueue = Volley.newRequestQueue(context.getApplicationContext());
