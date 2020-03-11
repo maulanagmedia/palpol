@@ -8,7 +8,8 @@ public class ServerURL {
 
     //private static final String baseURL = "http://192.168.17.4/perkasamobile/pol/";
     //private static final String baseURL = "http://36.66.177.165/pol/";
-    private static final String baseURL = "http://gmedia.bz/pal/apipol/";
+    //private static final String baseURL = "http://gmedia.bz/pal/apipol/";
+    private final static String baseURL = "http://primaagrolancar.co.id/apipol/";
 
     public static final String login = baseURL + "location/login/";
     public static final String getLocation = baseURL + "location/get_location/";
