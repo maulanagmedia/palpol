@@ -28,6 +28,7 @@ import android.os.Bundle;
 import androidx.core.content.FileProvider;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
@@ -82,6 +83,8 @@ import java.util.Locale;
 
 import id.net.gmedia.paloutletlocator.Adapter.PhotosAdapter;
 import id.net.gmedia.paloutletlocator.Utils.ServerURL;
+import me.relex.circleindicator.CircleIndicator;
+import me.relex.circleindicator.CircleIndicator2;
 
 public class FormMapsActivity extends FragmentActivity implements OnMapReadyCallback , LocationListener {
 
@@ -131,6 +134,7 @@ public class FormMapsActivity extends FragmentActivity implements OnMapReadyCall
     private Location mCurrentLocation;
     private boolean isLocationChangeEnable = true;
     private TextView tvNamaPemilik;
+    private CircleIndicator2 ciIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,12 +172,17 @@ public class FormMapsActivity extends FragmentActivity implements OnMapReadyCall
         btnSimpan = (Button) findViewById(R.id.btn_simpan);
         rvPhotos = (RecyclerView) findViewById(R.id.rv_image);
         llReset = (LinearLayout) findViewById(R.id.ll_reset);
+        ciIndicator = (CircleIndicator2) findViewById(R.id.ci_indicator);
 
         photoList = new ArrayList<>();
         LinearLayoutManager layoutManager= new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false);
         adapter = new PhotosAdapter(FormMapsActivity.this, photoList);
         rvPhotos.setLayoutManager(layoutManager);
         rvPhotos.setAdapter(adapter);
+        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
+        pagerSnapHelper.attachToRecyclerView(rvPhotos);
+        ciIndicator.attachToRecyclerView(rvPhotos, pagerSnapHelper);
+        adapter.registerAdapterDataObserver(ciIndicator.getAdapterDataObserver());
 
         isLocationChangeEnable = true;
 
@@ -358,7 +367,13 @@ public class FormMapsActivity extends FragmentActivity implements OnMapReadyCall
 
     private void getImagesData() {
 
-        ApiVolley request = new ApiVolley(FormMapsActivity.this, new JSONObject(), "GET", ServerURL.getImages+kdCus, new ApiVolley.VolleyCallback() {
+        JSONObject jBody = new JSONObject();
+        try {
+            jBody.put("kdcus", kdCus);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ApiVolley request = new ApiVolley(FormMapsActivity.this, jBody, "POST", ServerURL.getImages+kdCus, new ApiVolley.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
 
@@ -408,7 +423,7 @@ public class FormMapsActivity extends FragmentActivity implements OnMapReadyCall
         return bitmap;
     }
 
-    public static  InputStream getHttpConnection(String urlString)  throws IOException {
+    public static InputStream getHttpConnection(String urlString)  throws IOException {
 
         InputStream stream = null;
         URL url = new URL(urlString);
